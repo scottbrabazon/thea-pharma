@@ -1,0 +1,152 @@
+{#
+ # Homepage template
+ # -----------------
+ #
+ # This template gets loaded whenever the site's homepage is requested, because
+ # the "Homepage" single-entry section's Template setting is set to "index".
+ #
+ # An `entry` variable will be automatically passed to this template, which will
+ # be set to the Homepage entry.
+-#}
+
+{% extends "_layouts/site" %}
+
+{% block main %}
+
+<section class="home-intro pure-g" id="live-site">
+
+	<div class="home-intro-image pure-u-1-1 pure-u-md-11-24">
+
+
+		{% set asset = entry.headlineImage.first() %}
+
+		{% if asset %}
+    		<img class="main-image" src="{{ asset.url }}" alt="{{ asset.title }}" />
+		{% endif %}
+
+
+	</div>
+
+	<div class="home-intro-copy pure-u-1-1 pure-u-md-13-24">
+
+		<p class="intro">{{ entry.introduction }}</p>
+
+		{{ entry.mainCopy }}
+		
+
+	</div>
+
+</section>
+
+{% include "_panels/insight-login" %}
+
+
+<section class="product-focus">
+
+<h2>Condition: Dry Eye</h2>
+
+<ul class="product-focus-list">
+
+	{% for product in entry.showProducts %}
+	
+	<li>
+		<div class="image-circle">
+
+			{% set asset = product.featureImage.first() %}
+
+			{% if asset %}
+	    		<a href="{{ product.url }}"><img src="{{ asset.getUrl('relatedProduct') }}" alt="{{ asset.title }}" /></a>
+			{% endif %}
+
+		</div>
+
+		<h3><a href="{{ product.url }}">{{ product.displayTitle | raw }}</a></h3>
+
+		<p>{{ product.introduction }}</p>
+
+  	</li>
+			
+	{% endfor %}
+
+</ul>
+
+{#
+<ul class="product-focus-list">
+	<li>
+		<div class="image-circle">
+			<img src="{{ siteUrl }}img/product/hyabak-small.jpg" />
+		</div>
+		<h3>HyaBak<sup>&reg;</sup></h3>
+		<p>Preservative-free, multi-dose eye drops containing 0.15% sodium hyaluronate for long-lasting relief from eye discomfort and dry-feeling eyes.</p>
+	</li>
+
+	<li>
+		<div class="image-circle">
+			<img src="{{ siteUrl }}img/product/liquivisc-small.jpg" />
+		</div>
+		<h3>Liquivisc<sup>&reg;</sup></h3>
+		<p>(Carbomer 974P 2.5 mg/g) Eye gel for the symptomatic treatment of Dry Eye syndrome.</p>
+	</li>
+
+	<li>
+		<div class="image-circles">
+			<img src="{{ siteUrl }}img/product/thealoz-small.jpg" />
+		</div>
+		<h3>Thealoz<sup>&reg;</sup></h3>
+		<p>Preservative-free, multi-dose eye drops containing 3% trehalose. Thealoz® is a new concept in Dry Eye management that comes from nature.</p>
+	</li>
+</ul>
+#}
+
+</section>
+
+<section class="faqs-section">
+
+	<h2>Common Conditions</h2>
+
+	{% set faqs = craft.entries({
+    	relatedTo: { sourceElement: entry, field: "selectedFaqs" },
+    	limit: 4
+	}) %}
+
+
+	<div class="question-holder pure-g">
+
+		<div class="question-col pure-u-1 pure-u-md-12-24">
+
+			<ul>
+
+				{% for faq in faqs | slice(0, 2) %}
+					<li>
+						<p class="faq-question">{{ faq.title }}</p>
+
+						<div class="faq-answer">{{ faq.faqAnswer }}</div>
+					</li>
+				{% endfor %}
+			</ul>
+
+		</div>
+
+		<div class="question-col pure-u-1 pure-u-md-12-24">
+
+			<ul>
+
+				{% for faq in faqs | slice(2, 4) %}
+					<li>
+						<p class="faq-question">{{ faq.title }}</p>
+
+						<div class="faq-answer">{{ faq.faqAnswer }}</div>
+					</li>
+				{% endfor %}
+			</ul>
+			
+		</div>
+
+	</div>
+
+</section>
+
+{% include "_panels/enquiry-form" %}
+	
+	
+{% endblock %}

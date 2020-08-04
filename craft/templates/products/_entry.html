@@ -1,0 +1,159 @@
+{#
+ # Product entry page
+ # -----------------
+-#}
+
+{% set title = entry.title %}
+{% set metaDescription = entry.metaDescription %}
+
+{% extends "_layouts/site" %}
+
+{% block main %}
+
+
+<section class="entry-content pure-g">
+		
+
+	<div class="pure-u-1">
+
+		{% set categorySlug = "test" %}
+		
+		{% nav category in entry.conditions %}
+		<h2 class="product-therapy-badge {{ category.cssReference }}"><svg><use xlink:href="#conditions-symbol"></use></svg><span>{{ entry.displayTitle | raw }}</span></h2>
+		{% set categorySlug = category.cssReference %}
+		{% endnav %}
+
+
+
+		<p>{{ entry.introduction }}</p>
+
+		<div class="product-image">
+		{% set asset = entry.featureImage.first() %}
+
+		{% if asset %}
+    		<img src="{{ asset.url }}" alt="{{ asset.title }}" />
+		{% endif %}
+
+		{% if entry.showAbakBadge == "yes" or entry.showPreservativeFreeBadge == "yes" %}
+
+		<div class="product-badges">
+
+		{% if entry.showAbakBadge == "yes" %}
+			<img src="{{ siteUrl }}img/abak-badge.png" class="product-badge" />
+		{% endif %}
+
+		{% if entry.showPreservativeFreeBadge == "yes" %}
+			<img src="{{ siteUrl }}img/pres-free-badge.png" class="product-badge" />
+		{% endif %}
+
+		</div>
+
+		{% endif %}
+
+		</div>
+
+		{{ entry.mainCopy }}
+
+		<div class="nutrition-info">
+
+		{{ entry.nutritionInformation }}
+
+		</div>
+
+		{{ entry.featuresBenefits }}
+
+		<div class="product-footnotes">
+		{{ entry.footnotes }}
+		</div>
+
+
+		{% if categorySlug == "eye-nutritionals" %}
+		<p class="nutrition-note">Please note that {{ entry.displayTitle | raw }} is a dietary supplement and cannot replace a balanced and varied diet.</p>
+		{% endif %}
+
+		{% if entry.shopPageUrl != "" %}
+		<div class="trolley-link">
+			<a href="{{ entry.shopPageUrl }}">
+			<img src="{{ siteUrl }}img/icon-trolley.png" />
+			<span>Visit our online shop now to buy</span>
+			</a>
+		</div>
+		{% endif %}
+
+		{% if entry.relatedFiles|length %}
+
+		<h3>Related Files</h3>
+
+		<ul class="related-files related-files-main">
+		{% for block in entry.relatedFiles %}
+			{% set relatedFile = block.fileAsset.first() %}
+			<li>
+				<a href="{{ relatedFile.url }}"><img src="{{ siteUrl }}img/pdf-icon.png" alt="PDF icon" />
+				{% if block.fileTitle == "other" %}{{ block.fileOtherTitle }}{% else %}{{ block.fileTitle.label }}{% endif %}</a>
+			</li>
+		{% endfor %}
+		</ul>
+
+		{% endif %}
+
+		{% if entry.pom | length %}
+		<div class="warning-box">
+			{{ product.adverseReactionCopy }}
+		</div>
+		{% endif %}
+
+
+	</div>
+
+</section>
+
+<section class="related-products">
+
+<h2>Other Products</h2>
+	
+	<div class="product-panels-holder pure-g">
+
+
+		{% for product in entry.showProducts %}
+
+		<div class="pure-u-1-1 pure-u-md-1-2 pure-u-lg-1-3">
+		
+		<div class="product-panel {{ product.slug }}">
+			
+			<div class="image-circle">
+
+				{% set asset = product.featureImage.first() %}
+
+				{% if asset %}
+		    		<a href="{{ product.url }}"><img src="{{ asset.getUrl('relatedProduct') }}" alt="{{ asset.title }}"/></a>
+				{% endif %}
+
+			</div>
+
+			<h3><a href="{{ product.url }}">{{ product.displayTitle | raw }}</a></h3>
+			
+			<p>{{ product.introduction }}</p>
+
+			<p class="more-link"><a href="{{ product.url }}">More Info</a></p>
+
+
+	  	</div>
+
+	  	</div>
+				
+		{% endfor %}
+			
+	
+	
+	</div> <!-- end of slider -->
+
+</section>
+			
+
+
+
+{% include "_panels/enquiry-form" %}
+
+
+	
+{% endblock %}

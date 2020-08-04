@@ -1,0 +1,164 @@
+server {
+  listen 80;
+  server_name spectrum-thea.co.uk, www.spectrum-thea.co.uk;
+
+  #redirects for new site from spectrum-thea
+
+  location = /about-us/about-thea.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/about-us; }
+  location = /about-us/company-profile.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/about-us; }
+  location = /accessibility.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/accessibility; }
+
+  # can't match query args in a location so for URLs like:
+  # /apps/contactus/default.aspx?fid=8 use if statements
+
+  location = /apps/contactus/default.aspx { if ($args ~ fid=8){ return 301 $scheme://www.thea-pharmaceuticals.co.uk/contact-us;} }
+
+  location = /apps/content/html/viewcontent.aspx {
+    if ($args ~ fid=10) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephasol; }
+    if ($args ~ fid=11) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephaclean; }
+    if ($args ~ fid=12) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/hyabak; }
+    if ($args ~ fid=13) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephagel; }
+    if ($args ~ fid=15) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/otrivine-antistin; }
+    if ($args ~ fid=20) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/locator/stockists; }
+    if ($args ~ fid=28) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/conditions/dry-eye; }
+    if ($args ~ fid=31) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephasteam; }
+    if ($args ~ fid=34) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/accessibility; }
+    if ($args ~ fid=35) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/nutrof-total; }
+    if ($args ~ fid=36) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/contact-us; }
+    if ($args ~ fid=38) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/contact-us; }
+    if ($args ~ fid=39) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/thealoz; }
+    if ($args ~ fid=4) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/about-us; }
+    if ($args ~ fid=41) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/thealoz-duo; }
+    if ($args ~ fid=5) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products; }
+    if ($args ~ fid=6) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/hyabak; }
+    if ($args ~ id=24) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephasol; }
+    if ($args ~ id=72) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products; }
+  }
+
+  location = /apps/content/news/viewarticle.aspx {
+    if ($args ~ id=35) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/nutrof-total; }
+    if ($args ~ id=41) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products; }
+    if ($args ~ id=63) { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/virgan; }
+  }
+
+
+  location = /apps/sitemap { return 301 $scheme://www.thea-pharmaceuticals.co.uk/sitemap; }
+  location = /apps/sitemap/ { return 301 $scheme://www.thea-pharmaceuticals.co.uk/sitemap; }
+  location = /apps/stockists/ { return 301 $scheme://www.thea-pharmaceuticals.co.uk/locator/stockists; }
+  location = /apps/stockists/dryeye.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/locator/specialists; }
+  location = /blephaclean.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephaclean; }
+  location = /blephaclean/blephaclean-eye-lid-hygiene-wipes.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephaclean; }
+  location = /blephaclean/composition-of-blephaclean.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephaclean; }
+  location = /blephagel.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephagel; }
+  location = /blephagel/blephagel-preservative-free.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephagel; }
+  location = /blephagel/composition-of-blephagel-preservative-free.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephagel; }
+  location = /blephasol.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephasol; }
+  location = /blephasol/blephasol-eye-lid-hygiene-solution.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephasol; }
+  location = /blephasteam-now-launched-in-the-uk.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephasteam; }
+  location = /blephasteam.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephasteam; }
+  location = /blephasteam/blephasteam-and-meibomian-gland-dysfunction.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephasteam; }
+  location = /blephasteam/blephasteam-clinical-data-multi-site-study.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephasteam; }
+  location = /blephasteam/faqs.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/faqs; }
+  location = /blephasteam/what-is-blephasteam.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/blephasteam; }
+  location = /contact-us { return 301 $scheme://www.thea-pharmaceuticals.co.uk/contact-us; }
+  location = /contact-us/contact-and-address-details.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/contact-us; }
+  location = /hyabak-caps.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/hyabak-caps; }
+  location = /hyabak.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/hyabak-caps; }
+  location = /hyabak/abak.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/preservative-free; }
+  location = /hyabak/abaksup/sup.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/preservative-free; }
+  location = /hyabak/composition-of-hyabak.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/hyabak; }
+  location = /hyabak/hyabak.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/hyabak; }
+  location = /nutrof-total.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/nutrof-total; }
+  location = /nutrof-total/composition-of-nutrof-total.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/nutrof-total; }
+  location = /nutrof-total/nutrof-total.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/nutrof-total; }
+  location = /patient-information/what-is-age-related-macular-degeneration-armd.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/faqs; }
+  location = /patient-information/what-is-armd.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/faqs; }
+  location = /patient-information/what-is-dry-eye.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/conditions/dry-eye; }
+  location = /products.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products; }
+  location = /thealoz-a-new-alternative-for-dry-eye-is-now-available-in-the-uk.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/thealoz; }
+  location = /thealoz-duo/thealoz-duo-.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/thealoz-duo; }
+  location = /thealoz.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/thealoz-duo; }
+  location = /thealoz/the-best-of-both-worlds-thealoz-duo.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/thealoz-duo; }
+  location = /thealoz/thealoz.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products/thealoz; }
+  location = /useful-links.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/products; }
+  location = /videos.aspx { return 301 $scheme://www.thea-pharmaceuticals.co.uk/preservative-free; }
+
+  return 301 $scheme://www.thea-pharmaceuticals.co.uk$request_uri;
+}
+
+#MAIN SITE CONFIGURATION
+
+#redirection to www - our convention is to do this
+
+server {
+   listen 80;
+   server_name thea-pharmaceuticals.co.uk;
+   return 301 $scheme://www.thea-pharmaceuticals.co.uk$request_uri;
+}
+
+server {
+  listen  80;
+  #listen 80 default_server;
+  #listen [::]:80 default_server;
+  server_name thea.foundrydev.co.uk;
+  access_log /srv/www/thea-pharmaceuticals.co.uk/logs/access.log;
+  error_log /srv/www/thea-pharmaceuticals.co.uk/logs/error.log;
+  root /srv/www/thea-pharmaceuticals.co.uk/public_html;
+  index index.php index.html index.htm;
+
+  #redirects for new site
+  location = /healthcare-professionals/therapy-areas/dry-eye { return 301 /conditions/dry-eye; }
+  location = /healthcare-professionals/therapy-areas/allergy { return 301 /conditions/allergy; }
+  location = /healthcare-professionals/products/zaditen { return 301 /products/zaditen; }
+  location = /healthcare-professionals/therapy-areas/glaucoma { return 301 /conditions/glaucoma; }
+  location = /healthcare-professionals/products/monopost { return 301 /products/monopost; }
+  location = /healthcare-professionals/products/mydriasert { return 301 /products/mydriasert; }
+  location = /healthcare-professionals/products/thealoz { return 301 /products/thealoz; }
+  location = /healthcare-professionals/products/aprokam { return 301 /products/aprokam; }
+  location = /about { return 301 /about-us; }
+  location = /healthcare-professionals/therapy-areas/nutrition { return 301 /conditions/eye-nutritionals; }
+  location = /healthcare-professionals/products { return 301 /products; }
+  location = /healthcare-professionals/products/teoptic { return 301 /products/teoptic; }
+  location = /healthcare-professionals/therapy-areas/infection { return 301 /conditions/infection; }
+  location = /healthcare-professionals/products/azyter { return 301 /products/azyter; }
+  location = /healthcare-professionals/products/nutrof-total { return 301 /products/nutrof-total; }
+  location = /healthcare-professionals/products/tiopex { return 301 /products/tiopex; }
+  location = /contact-us { return 301 /contact-us; }
+  location = /healthcare-professionals/therapy-areas/surgery { return 301 /conditions/surgery; }
+  location = /healthcare-professionals/products/virgan { return 301 /products/virgan; }
+  location = /healthcare-professionals/products/otrivine-antistin { return 301 /products/otrivine-antistin; }
+  location = /healthcare-professionals/products/voltarol-optha { return 301 /products/voltarol-ophtha; }
+  location = /healthcare-professionals/products/dexafree { return 301 /products/dexafree; }
+  location = /patients { return 301 /products; }
+  location = /healthcare-professionals/products/liquivisc { return 301 /products/liquivisc; }
+  location = /healthcare-professionals/therapy-areas { return 301 /conditions; }
+  location = /report-adverse-reaction { return 301 /adverse-reaction; }
+  location = /healthcare-professionals/therapy-areas/anti-inflammatory { return 301 /conditions/anti-inflammatory; }
+  location = /healthcare-professionals/products/hyabak { return 301 /products/hyabak; }
+  location = /healthcare-professionals { return 301 /conditions; }
+
+  #allow bigger files to be uploaded
+  client_max_body_size 30M;
+
+  location ~* \.(?:ico|svg|css|js|gif|jpe?g|png)$ {
+    expires 6M;
+    add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+    try_files $uri /index.php?$query_string;
+  }
+
+  location ~ \.php$ {
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index index.php;
+    include fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+  }
+
+  location ~ ^(.*)$ {
+    try_files $uri $uri/ /index.php?p=$uri&$args;
+  }
+
+
+  location ~ /\. {access_log off; log_not_found off; deny all; }
+
+}

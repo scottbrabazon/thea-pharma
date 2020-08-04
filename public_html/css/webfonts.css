@@ -1,0 +1,41 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3078487, 2015-08-20T07:45:04-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: ModulusRegular by Andrew Footit
+ * URL: http://www.myfonts.com/fonts/virtuecreative/modulus/regular/
+ * Copyright: Modulus &#x00A9;Virtue Creative. 2012. All Rights Reserved
+ * 
+ * Webfont: Modulus-Bold by Andrew Footit
+ * URL: http://www.myfonts.com/fonts/virtuecreative/modulus/bold/
+ * Copyright: Modulus &#x00A9;Virtue Creative. 2012. All Rights Reserved
+ * 
+ * Webfont: ModulusMedium by Andrew Footit
+ * URL: http://www.myfonts.com/fonts/virtuecreative/modulus/medium/
+ * Copyright: Copyright (c) 2011 by Virtue84 . All rights reserved.
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3078487
+ * Licensed pageviews: 10,000
+ * 
+ * © 2015 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/2ef957");
+
+  
+@font-face {font-family: 'ModulusRegular';src: url('webfonts/2EF957_0_0.eot');src: url('webfonts/2EF957_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2EF957_0_0.woff2') format('woff2'),url('../csswebfonts/2EF957_0_0.woff') format('woff'),url('../csswebfonts/2EF957_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'Modulus-Bold';src: url('webfonts/2EF957_1_0.eot');src: url('webfonts/2EF957_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2EF957_1_0.woff2') format('woff2'),url('webfonts/2EF957_1_0.woff') format('woff'),url('webfonts/2EF957_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'ModulusMedium';src: url('webfonts/2EF957_2_0.eot');src: url('webfonts/2EF957_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2EF957_2_0.woff2') format('woff2'),url('webfonts/2EF957_2_0.woff') format('woff'),url('webfonts/2EF957_2_0.ttf') format('truetype');}

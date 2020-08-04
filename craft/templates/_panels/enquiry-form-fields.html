@@ -1,0 +1,74 @@
+<form method="post" action="amForms/submissions/saveSubmission" accept-charset="UTF-8">
+
+
+	
+			    {{ getCsrfInput() }}
+
+			    {# This should always be here! #}
+			    <input type="hidden" name="action" value="amForms/submissions/saveSubmission">
+
+			    {# Insert your form's handle. #}
+			    <input type="hidden" name="handle" value="feedback">
+
+			    {# Optional: Redirect URL. Will redirect to current page by default. #}
+			    <input type="hidden" name="redirect" value="{{ craft.request.getSegment(1) }}?message=thankyou">
+
+			    {# Optional: Anti-spam protection. #}
+			    {{ craft.amForms.displayAntispam() }}
+
+
+			    {# Place the HTML of your fields here #}
+
+				<label class="required" for="fields-name">Name<sup>*</sup></label>
+				<input class="text nicetext fullwidth" type="text" id="fields-name" name="fields[name]" required value="" data-show-chars-left autocomplete="nope" placeholder="">
+
+
+				<label for="fields-occupation">Occupation</label>
+				<input class="text nicetext fullwidth" type="text" id="fields-occupation" name="fields[occupation]" value="" data-show-chars-left autocomplete="nope" placeholder="">
+
+
+				<label for="fields-practiceName">Practice Name</label>
+				<input class="text nicetext fullwidth" type="text" id="fields-practiceName" name="fields[practiceName]" value="" data-show-chars-left autocomplete="nope" placeholder="">
+
+
+				<label for="fields-telephoneNumber">Telephone number</label>
+				<input class="text nicetext fullwidth" type="text" id="fields-telephoneNumber" name="fields[telephoneNumber]" value="" data-show-chars-left autocomplete="nope" placeholder="">
+
+
+				<label class="required" for="fields-emailAddress">Email address<sup>*</sup></label>
+				<input class="text nicetext fullwidth" type="email" id="fields-emailAddress" name="fields[emailAddress]" required value="" data-show-chars-left autocomplete="nope" placeholder="">
+
+				{% if page is not defined %}
+					{% set page = "" %}
+				{% endif %}
+
+				{% if page == 'adverse' %}
+				
+					<input name="fields[enquiryType]" type="hidden" value="adverseReaction" />
+
+				{% else %}
+      
+				<label for="fields-enquiryType">Enquiry Type</label>
+
+				<select name="fields[enquiryType]" id="fields-enquiryType">
+				<option value="generalEnquiry">General Enquiry</option>
+				<option value="productSample">Product Sample</option>
+				<option value="adverseReaction">Adverse Reaction</option>
+				</select>
+
+				{% endif %}
+
+
+
+
+				<label for="fields-details">Details</label>
+				<textarea id="fields-details" name="fields[details]" data-show-chars-left placeholder=""></textarea>
+
+
+				<label for="enquiry_opt_in" class="tick-box"><input id="enquiry_opt_in" type="checkbox" value="yes" class="checkbox" name="fields[subscribe][]" /> Please keep me up to date with everything about Thea Pharmceuticals.</label>
+
+
+				<button class="button" name="send" type="submit">Get in Touch</button>
+
+			    
+			</form>

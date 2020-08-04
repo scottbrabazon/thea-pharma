@@ -1,0 +1,1982 @@
+/* maven pro webfont setup */
+
+@font-face {
+    font-family: "maven-pro";
+    src: url('webfonts/mavenpro-regular-webfont.woff2') format('woff2'),
+         url('webfonts/mavenpro-regular-webfont.woff') format('woff'),
+         url('webfonts/mavenpro-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "maven-pro";
+    src: url('webfonts/mavenpro-medium-webfont.woff2') format('woff2'),
+         url('webfonts/mavenpro-medium-webfont.woff') format('woff'),
+         url('webfonts/mavenpro-medium-webfont.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "maven-pro";
+    src: url('webfonts/mavenpro-bold-webfont.woff2') format('woff2'),
+         url('webfonts/mavenpro-bold-webfont.woff') format('woff'),
+         url('webfonts/mavenpro-bold-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/*
+@font-face {
+    font-family: 'maven-pro';
+    src: url('webfonts/mavenpro-black-webfont.woff2') format('woff2'),
+         url('webfonts/mavenpro-black-webfont.woff') format('woff'),
+         url('webfonts/mavenpro-black-webfont.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+*/
+
+/* maven pro webfont setup */
+
+@font-face {
+    font-family: "amoebia-sans-regular";
+    src: url('webfonts/amoebia_sans_regular-webfont.woff') format('woff'),
+         url('webfonts/amoebia_sans_regular-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  background:
+    url(../img/site-bg-bottom.png) 0 100% repeat-x,
+    url(../img/site-bg-top.png) 0 0 repeat-x;
+  background-color: #e6f1f8;
+  font-family: arial, sans-serif;
+  color: #555;
+}
+
+/* font-family for the pure grid system */
+
+.pure-g [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    font-family: arial, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: "maven-pro", arial, sans-serif;
+  color: #4dA4f3;
+
+}
+
+.wrapper {
+  max-width: 960px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+}
+
+main {
+  clear: both;
+}
+
+.main-image {
+  float: left;
+  margin: 22px 0 22px 0;
+  width: 96%;
+}
+
+p {
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+p.intro {
+  font-size: 1.1em;
+  font-family: "maven-pro";
+  line-height: 1.3;
+}
+
+li p {
+  font-size: 0.9em;
+}
+
+a {
+  color: #4dA4f3;
+}
+
+h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.search-box {
+  color: #444;
+}
+
+/* footer */
+
+footer {
+  background-color: #ededee;
+  padding: 12px;
+}
+
+footer p {
+  text-align: center;
+  color: #77787b;
+  font-size: 0.85em;
+}
+
+footer h3 {
+  font-weight: normal;
+  color: #509bd1;
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 0px;
+  margin-top: 12px;
+}
+
+/* special case for the footer address only when above 340px should the below happen */
+/* it's then switched back to auto for over 768px - futher down this file */
+
+
+@media screen and (min-width: 22em) {
+
+  .footer-address {
+    width: 325px;
+    margin: 0 auto;
+  }
+
+}
+
+.footer-address p {
+  text-align: left;
+}
+
+.union-jack {
+  width: 50px;
+  float: left;
+  margin-bottom: 80px;
+  padding-right: 8px;
+  margin-top: 3px;
+}
+
+footer .tel {
+  font-family: "maven-pro";
+  font-size: 2.6em;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+}
+
+.outside-uk {
+  color: #509bd1;
+  margin: 0;
+}
+
+.outside-uk a {
+  color: #509bd1;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0px auto 8px auto;
+  padding: 0;
+  text-align: center;
+}
+
+.footer-links li {
+  display: inline;
+  margin-right: 12px;
+  font-size: 0.85em;
+}
+
+.footer-links li:last-child {
+  margin-right: 0;
+}
+
+.footer-links li a {
+  color: #77787b;
+}
+
+.banner {
+  background-color: #0e5dA5;
+  overflow: hidden;
+  height: 95px;
+  padding: 0 12px;
+  color: #fff;
+}
+
+.trolley {
+  float: left;
+  margin-top: 7px;
+  position: absolute;
+}
+
+.trolley a {
+  display: table;
+  font-size: 0.9em;
+}
+
+.trolley a img {
+  float: left;
+  width: 36px;
+}
+
+.trolley a span {
+  vertical-align: middle;
+  padding-left: 6px;
+  display: none;
+}
+
+/* SMALL >= 568px */
+
+@media screen and (min-width: 35.5em) {
+
+  .trolley a img {
+    width: 50px;
+  }
+
+  .trolley a span {
+    display: table-cell;
+  }
+
+}
+
+/* MEDIUM >= 768px */
+
+@media screen and (min-width: 48em) {
+
+  .trolley {
+    margin-top: 17px;
+  }
+
+}
+
+.trolley-link {
+  width: 268px;
+  padding: 10px;
+  background-color: #d6f0ef;
+  margin: 30px 0 30px 0;
+}
+
+.trolley-link a {
+  display: table;
+  font-size: 0.9em;
+}
+
+.trolley-link a img {
+  float: left;
+  width: 50px;
+}
+
+.trolley-link a span {
+  vertical-align: middle;
+  padding-left: 8px;
+  display: table-cell;
+}
+
+.search {
+  width: 80%;
+  overflow: none;
+  margin-top: 14px;
+  float: left;
+}
+
+.search button {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  float: left;
+  margin-top: -9px;
+}
+
+.search button object {
+ width: 30px;
+ color: #fff;
+ pointer-events: none;
+}
+
+
+/* input stylings */
+
+input, label {
+  font-size: 0.9em;
+}
+
+input {
+  border: none;
+  border-radius: 3px;
+  padding: 4px 6px;
+  background-color: #cde2f1;
+}
+
+.search input {
+  width: 60%;
+  float: left;
+  background-color: #fff;
+}
+
+button {
+  border: none;
+  border-radius: 3px;
+  padding: 6px 8px 6px 8px;
+  color: #fff;
+  background-color: #5aa0d2;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+}
+
+.banner .login {
+    float: right;
+    clear: both;
+    font-size: 1.3em;
+    margin: -64px 0px 8px 0px;
+    padding: 0;
+    line-height: 1;
+}
+
+.banner .login object {
+  float: left;
+  width: 30px;
+  margin-top: -4px;
+  margin-right: 6px;
+}
+
+.banner .telephone {
+  float: right;
+  font-size: 1.3em;
+  margin: 3px 0 0 0;
+  padding: 0;
+  font-family: "maven-pro";
+  font-weight: 400;
+  line-height: 1;
+}
+
+.logo {
+  margin: 12px auto 12px auto;
+  width: 270px;
+  /*height: 99px;*/
+}
+
+footer .logo {
+  margin: 6px auto 7px auto;
+}
+
+.logo a {
+  display: block;
+}
+
+.logo object {
+  width: 100%;
+  pointer-events: none;
+}
+
+.social-header {
+    float: left;
+    margin-top: -160px;
+    margin-bottom: 12px;
+    margin-left: 12px;
+}
+
+
+.social-footer {
+  
+}
+
+.social ul {
+  list-style: none;
+  padding: 0;
+}
+
+.social-footer ul {
+  width: 162px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.social li {
+  float: left;
+  margin-left: 6px;
+  /* hide the text */
+  text-indent: -500px; /* that should be enough */
+  overflow: hidden;
+  font: 10px monospace;
+  letter-spacing: -10px;
+}
+
+.social li:first-child {
+  margin-left: 0;
+}
+
+.social-icon {
+  display: block;
+  width: 34px;
+  height: 34px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.social-footer .social-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.social-icon-twitter {
+  background-image: url(../img/icon-twitter-white.svg);
+}
+
+.social-icon-linkedin {
+  background-image: url(../img/icon-linkedin-white.svg);
+}
+
+.social-icon-facebook {
+  background-image: url(../img/icon-facebook-white.svg);
+}
+
+footer .social-icon-twitter {
+  background-image: url(../img/icon-twitter.svg);
+}
+
+footer .social-icon-linkedin {
+  background-image: url(../img/icon-linkedin.svg);
+}
+
+footer .social-icon-facebook {
+  background-image: url(../img/icon-facebook.svg);
+}
+
+.menu-handle {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: -18px;
+  background-color: #fff;
+  padding-right: 8px;
+  width: 34px;
+  height: 34px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../img/icon-menu-button.svg);
+}
+
+nav {
+  width: 100%;
+  clear: both;
+  position: relative;
+  border-top: 2px solid #acd0e9;
+  margin-bottom: 8px ;
+}
+
+
+nav ul {
+  display: none;
+  list-style: none;
+  border-bottom: 2px solid #acd0e9;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 18px;
+}
+
+nav.show-nav ul {
+  display: block;
+}
+
+.no-js nav ul {
+  display: block;
+}
+
+nav ul li {
+  display: block;
+  padding: 7px 0 7px 0;
+  font-family: "maven-pro";
+  font-size: 1em;
+  width: 100%;
+}
+
+nav ul li a {
+  color: #222;
+  text-decoration: none;
+}
+
+.nav-icon {
+  width: 1.3em;
+  margin-left: 6px;
+  float: none;
+  vertical-align: bottom;
+  pointer-events: none;
+}
+
+/*search page results */
+
+.search-result p {
+  margin-top: 0;
+}
+
+.search-result h4 {
+  margin-bottom: 0;
+}
+
+
+/* Conditions Navigation */
+
+.sub-nav-holder {
+  display: none;
+  position: relative;
+  border: none;
+  width: 100%;
+}
+
+/* behaviors for the sub nav */
+
+/* no javascript - just display it */
+
+.no-js .sub-nav-holder {
+  display: block;
+}
+
+.sub-nav-holder h2 {
+    font-size: 1em;
+    margin: 12px 0 -10px 0;
+    display: none;
+}
+
+
+.show-sub-nav .current .sub-nav-holder {
+  display: block;
+}
+
+.show-sub-nav-narrow .current .sub-nav-holder {
+  display: block;
+}
+
+
+.conditions-sub-nav {
+  list-style: none;
+  width: auto;
+  margin: 14px auto -8px auto;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+}
+
+
+.conditions-sub-nav li {
+  box-sizing: border-box;
+  padding: 6px;
+  width: 47%;
+  border-radius: 4px;
+  float: left;
+  margin-right: 1.2%;
+  margin-bottom: 10px;
+  font-size: 0.8em;
+}
+
+.conditions-sub-nav li:nth-child(2n) {
+  margin-right: 0;
+}
+
+.conditions-sub-nav li a {
+  color: #222;
+  display: block;
+  overflow: hidden;
+}
+
+.conditions-sub-nav li span{
+  float: left;
+  margin-left: 6px;
+  height: 35px;
+  line-height: 35px;
+}
+
+.conditions-sub-nav svg {
+  width: 17%;
+  height: 30px;
+  float: left;
+}
+
+
+
+/* product symbol SVG color styling */
+/* using currectColor in the SVG allows a bit of styling to get through to the SVG */
+/* limit is two colors but in this case that is what is required */
+/* 'fill' is the circle and 'color' are the blobs */
+
+.dry-eye {
+  background-color: #d6f0ef;
+}
+
+.dry-eye svg {
+  fill: #77cdce;
+  color: #09b3b0;
+}
+
+.glaucoma {
+  background-color: #d1e1f1;
+}
+
+.glaucoma svg {
+  fill: #7aa4d6;
+  color: #037cbf;
+}
+
+.infection {
+  background-color: #fcdeea;
+}
+
+.infection svg {
+  fill: #f493b6;
+  color: #f03f90;
+}
+
+.allergy {
+  background-color: #fef9d9;
+}
+
+.allergy svg {
+  fill: #fdec84;
+  color: #f9e007;
+}
+
+.anti-inflammatory {
+  background-color: #fcdad1;
+}
+
+.anti-inflammatory svg {
+  fill: #f48365;
+  color: #eb1e25;
+}
+
+.eyelid-hygiene {
+  background-color: #fff7f0;
+}
+
+.eyelid-hygiene svg {
+  fill: #fee6cc;
+  color: #fed7ac;
+}
+
+.eye-nutritionals {
+  background-color: #fff0d7;
+}
+
+.eye-nutritionals svg {
+  fill: #ffd591;
+  color: #fdae1d;
+}
+
+.surgery {
+  background-color: #ebdaea;
+}
+
+.surgery svg {
+  fill: #bb86bc;
+  color: #9a4098;
+}
+
+/* over ride some of the above for the products category page */
+
+.therapy-badge {
+  position: relative;
+  margin-left: 45px;
+  margin-top: 34px;
+}
+
+.therapy-badge svg {
+  position: absolute;
+  top: -15px;
+  left: -51px;
+  width: 65px;
+  height: 65px;
+}
+
+.therapy-badge p {
+  margin-left: 0px;
+  padding: 10px 10px 10px 16px;
+  font-weight: 500;
+  font-size: 1em;
+  font-family: "maven-pro";
+}
+
+
+.insight-login {
+  background-color: #f8f8f9;
+  overflow: hidden;
+  padding: 12px 30px 12px 30px;
+  margin-bottom: 20px;
+}
+
+.insight-badge {
+  float: left;
+  width: 30%;
+}
+
+.insight-badge object {
+  width: 100%;
+}
+
+.insight-login form {
+  width: 60%;
+  float: left;
+  margin-left: 12px;
+}
+
+.insight-login label {
+  width: 25%;
+  float: left;
+}
+
+.insight-login input {
+  display: block;
+  width: 73%;
+  margin-bottom: 12px;
+}
+
+.product-focus {
+  border: 12px solid #d9f4f3;
+  padding: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.product-focus h2, .faqs-section h2, .enquiry-form h2, .related-products h2 {
+  text-align: center;
+  margin: 12px 0 20px 0;
+  font-weight: normal;
+  color: #509bd1;
+  font-size: 1.7em;
+}
+
+.product-focus-list h3 {
+  text-align: center;
+  font-weight: normal;
+  color: #509bd1;
+}
+
+.image-circle {
+  text-align: center;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 1px solid #4dA4f3;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.image-circle img {
+  margin: -8% 0 0 -8%;
+}
+
+.product-focus-list {
+  padding: 0;
+  list-style: none;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.product-focus-list li {
+  width: 60%;
+  margin: 12px auto 12px auto;
+}
+
+.product-image {
+  margin: 0 auto;
+}
+
+.product-image img {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-badges {
+  width: 100%;
+  text-align: center;
+  margin: 12px auto;
+}
+
+.product-image .product-badge {
+    width: 100px;
+    display: inline-block;
+    margin: 0;
+  }
+
+.nutrition-info {
+  clear: both;
+}
+
+.nutrition-note {
+  font-style: italic;
+}
+
+.product-footnotes p {
+  font-size: 0.8em;
+}
+
+
+.faqs-section ul {
+  padding-left: 20px;
+}
+
+.faqs-section li {
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.faqs-section li:before {
+  content:'';
+  float: left;
+  margin-right: 16px;
+  margin-top: 4px;
+  height: 40px;
+  width: 40px;
+  background-image:url('../img/icon-question-2.svg');
+  background-size:contain;
+  background-repeat:no-repeat;
+}
+
+/* Time Line Section */
+
+.timeline-section {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline-section h2 {
+  text-align: center;
+}
+
+.timeline-section hr { 
+    border: 0;
+    margin: -25px auto 30px auto;
+    width: 70%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255,255,255,0), #5aa0d2, rgba(255,255,255,0));
+}
+
+.timeslots {
+  margin-bottom: 30px;
+}
+
+
+/* hide the year for js */
+
+.timeslot h3 {
+  display: none;
+}
+
+.no-js .timeslot h3 {
+  display: block;
+}
+
+.timeslot img {
+  border: 5px solid #cee1f0;
+  padding: 5px;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto 14px auto;
+}
+
+.timeslot-copy {
+  width: 99%;
+  margin: 0 auto 0 auto;
+}
+
+.timeslots-nav {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.timeslots-nav div {
+  text-align: center;
+}
+
+.timeslots-nav a {
+  color: #5aa0d2;
+  text-decoration: none;
+  font-size: 1em;
+  width: 60px;
+  outline: 0;
+}
+
+.slick-current a {
+  color: #000;
+}
+
+.timeslots-nav a svg {
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+}
+
+.slick-arrow {
+  border: 0;
+  background: transparent url('../img/timeline-nav-left.png') 0 0 no-repeat;
+  background-size: contain;
+  text-indent: -500px;
+  overflow: hidden;
+  font: 10px monospace;
+  letter-spacing: -10px;
+  outline: 0;
+  position: absolute;
+  left: -21%;
+  top: 28px;
+  width: 40px;
+  height: 40px;
+}
+
+.slick-next {
+  left: auto;
+  right: -21%;
+  background-image: url('../img/timeline-nav-right.png');
+}
+
+
+/* timeslot repsonsive */
+
+/* 500px */
+
+@media screen and (min-width: 31em) {
+
+  .timeline-section {
+    width: 90%;
+  }
+
+.timeline-section hr { 
+      margin: -25px auto 30px auto;
+      width: 90%;
+  }
+
+  .timeslots-nav a {
+    display: inline-block;
+    font-size: 1.2em;
+    width: 60px;
+  }
+
+  .timeslots-nav {
+    width: 90%;
+  }
+
+  .slick-arrow {
+    left: -40px;
+    top: 34px;
+  }
+
+  .slick-next {
+    left: auto;
+    right: -40px;
+  }
+
+  .timeslot img {
+    border: 10px solid #cee1f0;
+    padding: 10px;
+    width: 94%;
+    margin: 0 auto 14px auto;
+  }
+
+  .timeslot-copy {
+    width: 94%;
+  }
+
+}
+
+/* 768px */
+@media screen and (min-width: 48em) {
+
+ .timeslots-nav a {
+    font-size: 1.6em;
+  }
+
+}
+
+
+/* Product Panels Section */
+
+/* hide by default */
+
+.product-page-nav-holder {
+  display: none;
+}
+
+.product-page-nav {
+  margin: 0;
+  padding: 0 12px 0 0;
+  list-style: none;
+}
+
+.product-page-nav li {
+  border-bottom: 1px solid #4dA4f3;
+  font-size: 0.9em;
+}
+
+.product-page-nav li a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  padding: 12px;
+}
+
+.product-panels {
+   padding: 0 30px 0 30px;
+}
+
+.product-panel {
+  padding: 10px;
+}
+
+
+.related-files {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-files li {
+  font-size: 0.8em;
+  border-bottom: 1px solid #5aa0d2;
+}
+
+.related-files li a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 0 17px 0;
+}
+
+.related-files li img {
+  width: 25px;
+  float: left;
+  margin-right: 10px;
+}
+
+.more-link {
+  /*text-align: right;*/
+}
+
+.more-link a {
+  color: #4dA4f3;
+}
+
+.feature-image {
+  padding: 0 6px;
+}
+
+.feature-image img {
+  max-height: 260px;
+}
+
+.product-panel .therapy-badge {
+  
+}
+
+/* single product display */
+
+.product-therapy-badge {
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  font-weight: normal;  
+  padding: 26px 10px 26px 10px;
+  margin-top: 30px;
+  border-radius: 2px;
+  font-size: 1.4em;
+  /*max-width: 520px;*/
+  color: #444;
+}
+
+.product-therapy-badge svg {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 24px;
+}
+
+.product-therapy-badge span {
+  display: inline-block;
+  padding: 13px 0 10px 56px;
+  text-align: left;
+}
+
+.pro-notice {
+  text-align: center;
+  font-size: 1em;
+  font-weight: 500;
+  color: #666;
+}
+
+.warning-box {
+  border: 1px solid #4dA4f3;
+  padding: 1em;
+}
+
+.warning-box p:first-child {
+  margin-top: 0;
+}
+
+.warning-box p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Enquiry Form Section */
+
+.enquiry-form, .faqs-section {
+  padding: 0 30px 0 30px;
+  margin-bottom: 30px;
+}
+
+.enquiry-form {
+  padding-bottom: 22px;
+  padding-top: 22px;
+  border-top: 2px solid #cde2f1;
+  margin-top: 22px;
+}
+
+.form-intro p, .form-intro h2 {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.enquiry-form-icon {
+  width: 48px;
+  margin-left: 10px;
+  margin-bottom: 12px;
+}
+
+.enquiry-form input {
+  display: block;
+  width: 62%;
+  margin-bottom: 22px;
+}
+
+.enquiry-form select {
+  display: block;
+  width: 50%;
+  margin-bottom: 22px;
+}
+
+.enquiry-form select option {
+  
+}
+
+.enquiry-form textarea {
+  width: 62%;
+  height: 80px;
+  display: block;
+  border: none;
+  border-radius: 3px;
+  padding: 3px;
+  background-color: #cde2f1;
+}
+
+.enquiry-form label {
+  float: left;
+  width: 32%;
+  margin-left: 10px;
+}
+
+.enquiry-form .tick-box {
+  width: 100%;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  float: none;
+  display: block;
+}
+
+.enquiry-form .tick-box input {
+  width: 20px;
+  margin-top: 4px;
+  margin-right: 10px;
+  float: left;
+}
+
+/* locator page */
+
+
+
+.location-search-form {
+  margin: -14px 0 12px 0;
+}
+
+.location-search-form form {
+  margin: 0 auto;
+}
+
+.location-search-form input {
+  border: 1px solid #5aa0d2;
+  padding: 4px;
+  background-color: #fff;
+  color: #444;
+  width: 40%;
+  margin-right: 16px;
+}
+
+.map {
+  width: 100%;
+  height: 400px;
+}
+
+.location-place p {
+  margin: 0px 0 6px 0;
+}
+
+.location-place .place-name {
+  margin-top: 0px;
+  font-weight: bold;
+}
+.location-place .distance {
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+.location-place .range-order {
+  color: #5aa0d2;
+  font-size: 2.4em;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+  border: 2px solid #5aa0d2;
+  border-radius: 50%;
+  margin-top: 22px;
+}
+
+/* entry content styling - for most entries in the site */
+
+section h1 {
+  color: #5aa0d2;
+  font-weight: normal;
+  font-size: 2.6em;
+}
+
+h2.page-title {
+  color: #5aa0d2;
+  font-weight: normal;
+  font-size: 2.6em;
+  margin-top: 22px;
+}
+
+.entry-content {
+  padding: 0 10px 30px 10px;
+}
+
+.entry-content h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 2em;
+  color: #5aa0d2;
+}
+
+.entry-content ul {
+  padding-left: 16px;
+  font-size: 0.9em;
+  margin-bottom: 24px;
+}
+
+.entry-content li {
+  margin-bottom: 9px;
+  line-height: 1.6;
+}
+
+.video-panel {
+  margin-bottom: 22px;
+}
+
+.video-panel h2 {
+  text-align: left;
+  margin-bottom: 3px;
+}
+
+.video-panel p {
+  margin-top: 0;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  margin-bottom: 20px;
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.faq-category {
+  margin-bottom: 60px;
+}
+
+.faq-question {
+  font-weight: bold;
+  padding-top: 7px;
+}
+
+.faq-answer {
+  padding-left: 58px;
+}
+
+.product-panels-holder {
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.product-panels-holder .product-panel {
+  padding: 10px 20px;
+}
+
+.promo-title {
+  background-color: #0e5da5;
+  color: #fff;
+  padding: 15px 15px;
+  font-family: "amoebia-sans-regular";
+  font-size: 2.6em;
+}
+
+.promo-main-img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.promo-pack-img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ≥ 568px */
+@media screen and (min-width: 35.5em) {
+
+  .promo-title {
+    padding: 20px 40px;
+    font-size: 3.6em;
+  }
+
+  .promo-main-img {
+   display: block;
+   margin: 0;
+  }
+
+  .promo-pack-img {
+   
+  }
+
+
+}
+
+.promo-title span {
+  color: #a9dee8;
+}
+
+
+.promotion-link {
+  width: 45%;
+}
+
+.promotion-link img {
+  max-height: 50px;
+}
+
+.promotion-link:nth-child(odd) {
+  margin-right: 5%;
+}
+
+.promotion-links {
+  display: flex;
+}
+
+.promo-copy-img {
+  display: flex;
+}
+
+.promo-copy-img img {
+  padding-left: 10px;
+}
+
+.promo-sub-head {
+  text-align: center;
+  font-weight: normal;
+  font-size: 2em;
+  color: #5aa0d2;
+}
+
+.promo-eye-drop img {
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.promo-ul li {
+  margin-bottom: 0;
+}
+
+.superscript {
+  font-size: 0.7em;
+}
+
+
+/*
+.product-panels-holder .product-panel {
+  float: left;
+  width: 50%;
+}
+*/
+
+
+/* as the pure CSS grid is used http://purecss.io/grids/ */
+/* use the same media queries for consistency */
+
+/* upshot of this is that a property specified in a smaller screen stays the same until changed in a larger screen */
+
+/*
+
+@media screen and (min-width: 35.5em) ≥ 568px
+
+@media screen and (min-width: 48em) ≥ 768px
+
+@media screen and (min-width: 64em) ≥ 1024px
+
+@media screen and (min-width: 80em) ≥ 1280px
+
+*/
+
+
+/* SMALL >= 568px */
+
+@media screen and (min-width: 35.5em) {
+
+  /* expand the banner to full width single line */
+
+  .social-header {
+    float: right;
+    margin-top: -22px;
+  }
+
+  .social-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .search {
+    width: 50%;
+  }
+
+  .search input {
+    width: 77%;
+  }
+  
+  .banner {
+    padding: 0px 12px;
+    height: 55px;
+  }
+
+  .banner .login {
+    float: right;
+    clear: none;
+    font-size: 1.2em;
+    margin: 17px 12px 0 0;
+  }
+
+  .banner .telephone {
+    float: right;
+    font-size: 1.2em;
+    margin-top: 18px;
+  }
+
+  .social-header {
+    margin-top: -134px;
+    margin-right: 12px;
+  }
+
+  .social-icon-twitter {
+    background-image: url(../img/icon-twitter.svg);
+  }
+
+  .social-icon-linkedin {
+    background-image: url(../img/icon-linkedin.svg);
+  }
+
+  .social-icon-facebook {
+    background-image: url(../img/icon-facebook.svg);
+  }
+
+  .social-footer {
+    margin-bottom: 30px;
+  }
+
+  .logo {
+    margin-top: 40px;
+  }
+
+  .conditions-sub-nav li {
+    width: 32%;
+  }
+
+  .conditions-sub-nav li:nth-child(2n) {
+    margin-right: 1.2%;
+  }
+
+  .conditions-sub-nav li:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  .entry-content {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .product-image {
+    float: left;
+    width: 46%;
+  }
+
+  .product-image img {
+    margin: 0 20px 0px 0;
+  }
+
+
+}
+
+/* MEDIUM >= 768px */
+
+@media screen and (min-width: 48em) {
+
+  .logo {
+    margin-top: 18px;
+  }
+
+  .menu-handle {
+    display: none;
+  }
+
+  nav ul {
+    display: block;
+    text-align: center;
+    /*margin-bottom: 172px;*/
+    padding-top: 0;
+  }
+
+  /* deal with the sub nav on bigger screens */
+
+  /* the menu is hidden when JS is on this rules make the sub-navs display
+     nicely without JS
+  */
+
+  .no-js .sub-nav-holder h2 {
+    display: block;
+  }
+
+  .no-js #conditions-nav .sub-nav-holder {
+    top: 100%;
+  }
+
+  .no-js #stockists-nav .sub-nav-holder {
+    top: 325px;
+  }
+
+  .no-js nav > ul {
+    margin-bottom: 414px;
+  }
+
+  /* it is absolutely positioned so need to put a margin on its container to push
+     the rest of the content down. As the sub navs are variable height an extra class is
+     added via JS to fix it. A bit hacky...
+  */
+
+  nav.show-sub-nav > ul.conditions-nav {
+    margin-bottom: 241px;
+  }
+
+  nav.show-sub-nav > ul.stockists-nav {
+    margin-bottom: 110px;
+  }
+
+  nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 0 10px 0;
+    font-size: 1em;
+    width: auto;
+  }
+
+  nav li.active a {
+    /*font-weight: bold;*/
+    color: #509bd1;
+  }
+
+  .nav-icon {
+    float: right;
+  }
+
+  .sub-nav-holder {
+    border-bottom: 2px solid #acd0e9;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+
+  .conditions-sub-nav svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .conditions-sub-nav {
+    width: 98%;
+    margin: 26px auto 14px auto;
+  }
+
+  .conditions-sub-nav li {
+    font-size: 0.9em;
+    padding: 8px 1.4% 8px 1.4%;
+    width: 24.1%;
+  }
+
+  .conditions-sub-nav li span {
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .conditions-sub-nav li:nth-child(2n) {
+    margin-right: 1.2%;
+  }
+
+  .conditions-sub-nav li:nth-child(3n) {
+    margin-right: 1.2%;
+  }
+
+  .conditions-sub-nav li:nth-child(4n) {
+    margin-right: 0;
+  }
+
+  .search input {
+    width: 200px;
+  }
+
+  .banner {
+    padding: 0px 24px;
+    height: 58px;
+  }
+
+
+  .banner .login {
+    float: right;
+    font-size: 1.6em;
+    margin: 0 0 8px 0;
+  }
+
+
+  .banner .login {
+    font-size: 1.3em;
+    margin: 16px 16px 0 0;
+  }
+
+  .banner .telephone {
+    font-size: 1.8em;
+    margin-top: 13px;
+  }
+
+  .social-header {
+    margin-top: -104px;
+    margin-right: 24px;
+  }
+
+  .product-panels {
+    padding: 0 30px 0 0px;
+  }
+
+  .product-page-nav-holder {
+    display: inline-block;
+  }
+
+  .feature-image img {
+    /*max-height: 100%;
+    width: 100%;*/
+  }
+
+  .product-therapy-badge {
+    /*width: 75%;*/
+    font-size: 2em;
+  }
+
+  .product-therapy-badge span {
+    padding-top: 9px;
+    color: #666;
+  }
+
+  .entry-content {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .home-intro-copy p {
+    padding-right: 60px;
+  }
+
+  .related-files-main {
+    overflow: hidden;
+
+  }
+
+  .related-files-main li {
+    width: 45.5%;
+    margin-right: 3%;
+    margin-left: 3%;
+    float: left;
+    font-size: 1em;
+  }
+
+  .related-files-main li:nth-child(2n) {
+    margin-left: 0;
+  }
+
+  .video-panel p {
+    margin-right: 20px;
+  }
+
+
+  .location-results {
+    width: 90%;
+    margin: 0 auto 22px auto;
+  }
+
+  .product-image {
+    float: left;
+    margin-left: -80px;
+  }
+
+  .product-image img {
+    width: 260px;
+    margin: 0 20px 20px 0;
+  }
+
+  footer .logo {
+    margin-bottom: -14px;
+  }
+
+  footer h3 {
+    margin-top: 32px;
+  }
+
+  .footer-address {
+    width: auto;
+    margin: 0;
+  }
+
+  .union-jack {
+    margin-bottom: 120px;
+  }
+
+}
+
+/* LARGE >= 1024px */
+
+@media screen and (min-width: 64em) {
+
+  .banner .telephone {
+    font-size: 2.2em;
+    margin-top: 14px;
+  }
+
+  .banner .login {
+    margin-right: 24px;
+  }
+
+  .insight-login {
+    padding: 12px 70px 12px 70px;
+  }
+
+  .enquiry-form, .faqs-section {
+    padding: 22px 72px 24px 72px;
+  }
+
+  .product-focus-list {
+    width: 820px;
+  }
+
+  .product-focus-list li {
+    width: 250px;
+    float: left;
+    margin-right: 30px;
+  }
+
+  .product-focus-list h3 {
+    text-align: center;
+  }
+
+  .product-focus-list p {
+    text-align: center;
+  }
+
+  .product-focus-list li:last-child {
+    margin-right: 0;
+  }
+
+
+  .conditions-sub-nav {
+    list-style: none;
+    width: 90%;
+  }
+
+  .conditions-sub-nav li {
+    font-size: 0.9em;
+  }
+
+  nav ul li {
+    margin-right: 20px;
+    font-size: 1em;
+  }
+
+  .conditions-sub-nav svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .product-therapy-badge {
+    /* width: 50%; */
+  }
+
+  .entry-content {
+    width: 66%;
+    margin: 0 auto;
+  }
+
+  .entry-content-promo {
+    width: 80%;
+  }
+
+  .product-image {
+    margin-left: -80px;
+  }
+
+  .product-image img {
+    
+  }
+
+  .image-circle {
+    width: 220px;
+    height: 220px;
+  }
+
+}
+
+/* EXTRA-LARGE >= 1280px */
+
+@media screen and (min-width: 80em) {
+
+}
+
+
+
+/* also add a new one - as the rest of the site is not 'small screen first' */
+
+/* 
+@media screen and (max-width: 35.4em) < 568px
+*/
+
+
+
+@media only screen and (max-width: 35.4em) {
+
+
+  .wrapper {
+    padding: 10px;
+    width: auto;
+  }
+
+  .insight-login {
+    padding: 12px 12px 12px 12px;
+
+  }
+
+  .insight-badge {
+    float: left;
+    width: 170px;
+    margin-right: 12px;
+  }
+
+  .insight-login form {
+    width: 100%;
+    float: none;
+    margin-left: 0px;
+  }
+
+  .insight-login input {
+    width: 70%;
+  }
+
+  .insight-login label {
+    width: 20%;
+    margin-right: 10px;
+  }
+
+
+  .product-focus-list {
+    width: auto;
+  }
+
+  .product-focus-list li {
+    width: auto;
+    float: none;
+    margin-right: 0;
+    margin-bottom: 36px;
+  }
+
+  .faqs-section {
+    padding: 0;
+  }
+
+  .faqs-section ul {
+    padding: 0;
+  }
+
+  .enquiry-form {
+    padding: 0;
+    padding-bottom: 24px;
+  }
+
+  .enquiry-form-icon {
+    width: 50px;
+    margin: -8px 0 6px 0;
+  }
+
+  .form-intro p, .form-intro h2 {
+    text-align: left;
+    padding-right: 0;
+  }
+
+  .enquiry-form label {
+    margin-left: 0;
+  }
+
+  .social-footer ul {
+    width: 170px;
+  }
+
+  .social-footer .social-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  footer .tel {
+    font-size: 2em;
+  }
+
+  .footer-links {
+    margin: 22px auto;
+  }
+
+}
+

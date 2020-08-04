@@ -1,0 +1,114 @@
+{#
+ # Preservatice Free Page
+ # -----------------
+-#}
+
+{% set title = entry.title %}
+{% set metaDescription = entry.metaDescription %}
+
+{% extends "_layouts/site" %}
+
+{% block main %}
+
+
+<section class="home-intro pure-g">
+
+  <div class="home-intro-image pure-u-1-1 pure-u-md-11-24">
+
+
+    {% set asset = entry.headlineImage.first() %}
+
+    {% if asset %}
+        <img class="main-image" src="{{ asset.url }}" alt="{{ asset.title }}" />
+    {% endif %}
+
+
+  </div>
+
+  <div class="home-intro-copy pure-u-1-1 pure-u-md-13-24">
+
+    <p class="intro">{{ entry.introduction }}</p>
+
+    {{ entry.mainCopy }}
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+{% include "_panels/insight-login" %}
+
+<section class="entry-content pure-g">
+    
+
+  <div class="pure-u-1">
+
+
+    {% for block in entry.entryContent %}
+
+      <h2>{{ block.heading }}</h2>
+
+      {{ block.sectionCopy }}
+
+    {% endfor %}
+
+
+  </div>
+
+</section>
+
+
+<section class="product-focus pure-g">
+    
+
+  <div class="pure-u-1">
+
+    <h2>{{ entry.videoPanelTitle }}</h2>
+
+    {{ entry.videoPanelIntroduction }}
+
+
+    <div class="pure-g video-panel">
+
+    {% for block in entry.videoPanels %}
+
+      
+
+      <div class="pure-u-1">
+
+      <h2>{{ block.videoHeading | raw }}</h2>
+
+      </div>
+
+      <div class="pure-u-1 pure-u-md-1-2">
+
+      {{ block.videoCopy }}
+
+      </div>
+
+       <div class="pure-u-1 pure-u-md-1-2">
+
+       {% if block.videoId != "" %}
+        <div class="video-wrapper">
+         <iframe class="video-iframe" allowfullscreen="" src="http://www.youtube.com/embed/{{ block.videoId }}?start={{ block.videoStartTime }}"></iframe>
+         </div>
+        {% endif %}
+      </div>
+
+    {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+      
+  
+{% endblock %}

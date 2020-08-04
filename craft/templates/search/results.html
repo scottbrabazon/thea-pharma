@@ -1,0 +1,45 @@
+{#
+ # Simple Page for Terms, Privacy Policy, etc..
+ # ---------------------------------------------
+-#}
+
+{% set bodyClass = "search-results" %}
+{% extends "_layouts/site" %}
+
+{% block main %}
+
+
+<section class="entry-content pure-g">
+    
+
+  <div class="pure-u-1">
+
+    <h1>Search Results</h1>
+
+	{% set query = craft.request.getParam('q') %}
+	{% set entries = craft.entries.search(query).section('not stockist').order('score') %}
+
+	{% if entries|length %}
+    <p>{{ entries|length }} results:</p>
+
+
+        {% for entry in entries %}
+            <div class="search-result">
+            	<h4><a href="{% if entry.section == "FAQ" %}{{ siteUrl }}faqs/#faq-{{ entry.slug }}{% else %}{{ entry.url }}{% endif %}">{{ entry.title }}</a></h3>
+            	<p>{{ entry.introduction }}</p>
+
+            </div>
+        {% endfor %}
+
+	{% else %}
+    	<p>Your search for “{{ query }}” didn’t return any results.</p>
+	{% endif %}
+
+  </div>
+
+
+</section>
+      
+
+  
+{% endblock %}

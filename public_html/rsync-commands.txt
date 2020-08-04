@@ -1,0 +1,4 @@
+
+rsync -a --no-perms --no-o --no-g public_html/ foundry@thea.foundrydev.co.uk:/srv/www/thea-pharmaceuticals.co.uk/public_html
+
+rsync -a --no-perms --no-o --no-g craft/templates/ foundry@thea.foundrydev.co.uk:/srv/www/thea-pharmaceuticals.co.uk/craft/templates

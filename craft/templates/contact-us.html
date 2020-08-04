@@ -1,0 +1,78 @@
+{#
+ # Contact Us Page
+ # -----------------
+-#}
+
+{% set title = entry.title %}
+{% set metaDescription = entry.metaDescription %}
+
+{% extends "_layouts/site" %}
+
+{% block main %}
+
+
+<section class="home-intro pure-g">
+
+  <div class="home-intro-image pure-u-1-1 pure-u-md-11-24">
+
+
+    {% set asset = entry.headlineImage.first() %}
+
+    {% if asset %}
+        <img class="main-image" src="{{ asset.url }}" alt="{{ asset.title }}" />
+    {% endif %}
+
+
+  </div>
+
+  <div class="home-intro-copy pure-u-1-1 pure-u-md-13-24">
+
+    
+  <h2 class="page-title">Contact Us</h2>
+
+  {% if craft.request.getParam("message") != "thankyou" %}
+
+    <p>{{ entry.introduction }}</p>
+
+    {{ entry.mainCopy }}
+
+  {% endif %}
+    
+
+  </div>
+
+</section>
+
+
+
+<section class="entry-content enquiry-form">
+
+  <div class="form-holder pure-g">
+
+    <div class="form-main pure-u-1">
+
+    {% if craft.request.getParam("message") != "thankyou" %}
+
+      {% include "_panels/enquiry-form-fields" %}
+
+    {% else %}
+
+      <p>{{ entry.thankYouMessage }}</p>
+
+    {% endif %}
+
+
+      
+
+    </div>
+
+  </div>
+
+
+</section>
+      
+
+
+
+  
+{% endblock %}

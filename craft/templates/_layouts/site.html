@@ -1,0 +1,267 @@
+{#
+
+ # The site layout template
+ # ------------------------
+ #
+ # This layout template extends the _layouts/base.html layout, and defines the
+ # main site layout: the header, footer, and main content area.
+ #
+ # It’s never accessed directly. Instead it is extended by all of our main site
+ # templates.
+ #
+ # This template defines one block region, `main`, which should be extended by
+ # child templates to define the main contents for the page.
+-#}
+
+{% extends "_layouts/base" %}
+
+{# Define the products site navigation #}
+{# hardcoded for now - make dynamic from actual product entries #}
+
+{% set conditionsNav = {
+		"dry-eye": {title: "Dry Eye"},
+		"glaucoma": {title: "Glaucoma"},
+		"infection": {title: "Infection"},
+		"allergy": {title: "Allergy"},
+		"anti-inflammatory": {title: "Anti-inflammatory"},
+		"eyelid-hygiene": {title: "Eyelid Hygiene"},
+		"eye-nutritionals": {title: "Eye Nutritionals"},
+		"surgery": {title: "Surgery"}
+} %}
+
+{# Set the `bodyClass` variable to the entry's section handle if there is one,
+   or the first URI segment (this is used by the parent template) #}
+{% if bodyClass is not defined %}
+	{% set bodyClass = entry is defined ? entry.section.handle : craft.request.firstSegment %}
+{% endif %}
+
+{# Set the `title` variable to the nav item that matches the first segment #}
+{% if nav[bodyClass] is defined %}
+	{% set title %}{% if title is defined %}{{ title }} - {% endif %}{{ nav[bodyClass].title }}{% endset %}
+{% endif %}
+
+
+{% block body %}
+
+<div class="wrapper">
+
+	<header id="header" class="cf">
+
+		<div class="banner">
+			<div class="search">
+				<form name="search_form" method="GET" action="{{ url("search/results") }}">
+					<input type="search" name="q" placeholder="search" class="search-box" />
+					<button><object type="image/svg+xml" data="{{ siteUrl }}img/icon-search-white.svg">Search</object></button>
+				</form>
+			</div>
+
+			<p class="telephone">{{ company.companyTelephone }}</p>
+			<!--p class="login"><object type="image/svg+xml" data="{{ siteUrl }}img/icon-login-white.svg">Search</object> Login</p-->
+		</div>
+
+		{% if product.shopPageUrl != "" %}
+		<div class="trolley">
+			<a href="{{ siteUrl }}go-to-shop">
+			<img src="{{ siteUrl }}img/icon-trolley.png" />
+			<span>Visit our online shop</span>
+			</a>
+		</div>
+		{% endif %}
+		
+		<h1 class="logo"><a href="{{ siteUrl }}"><object type="image/svg+xml" data="{{ siteUrl }}img/thea-logo.svg">Thea Pharmaceuticals</object></a></h1>
+
+		<div class="social social-header">
+			<ul>
+				<li><a href="{{ social.facebookUrl }}" class="social-icon social-icon-facebook" rel="noopener" target="_blank">Facebook</a></li>
+				<li><a href="{{ social.twitterUrl }}" class="social-icon social-icon-twitter" rel="noopener" target="_blank">Twitter</a></li>
+				<li><a href="{{ social.linkedinUrl }}" class="social-icon social-icon-linkedin" rel="noopener" target="_blank">LinkedIn</a></li>
+			</ul>
+		</div>
+
+		<!-- conditions symbol for the sub nav -->
+		<svg style="display:none;">
+			<symbol id="conditions-symbol" viewBox="0 0 181 199">
+			<path d="M99.225 36.267c-14.116 0-26.622 1.77-30.953 3.07-10.002 2.996-18.153 6.916-34.99 21.49-40.984 35.49-28.497 81.475-16.497 100.47 12 18.992 33.49 37.485 56.48 37.98.898.02 1.79.027 2.673.027 32.216 0 55.137-12.72 66.816-20.02 11.99-7.492 31.486-43.478 36.484-50.98 4.994-7.5-1-32.492-2.5-40.983-1.504-8.5-12-17.497-28.486-36.988-9.35-11.043-30.566-14.065-49.027-14.065M84.585 170.04c-12.648 0-24.642-3.23-31.815-9.244-15.49-12.993-17.49-41.986-16.493-50.483 1.004-8.5 11.505-26.478 25.992-35.487 11.598-7.21 22.013-8.716 31.497-8.716 5.638 0 10.95.535 15.984.718 13.504.502 31.502 11.498 36.49 32.99 5.875 25.21-6.04 41.87-21.483 56.48-9.933 9.39-25.5 13.74-40.173 13.74"/><path fill="currentColor" d="M15.288 2.35C6.016 8.208-4.208 24.843 1.794 33.84c6 8.995 22.988 12.994 31.488 7.996 8.49-5 12-23.99 8.49-31.487-3.49-7.5-16.985-13.994-26.484-8"/><path fill="currentColor" d="M86.764 93.817c-7.423 1.854-17.076 4.37-20.502 19.496-3.488 15.5 6.01 28.485 23.502 26.985 12.48-1.066 23.995-15.987 22.493-27.484-1.498-11.497-15.493-21.495-25.493-18.997"/>
+			</symbol>
+		</svg>
+
+		<svg style="display:none;">
+			<symbol id="nav-symbol" viewBox="0 0 190 199">
+			<circle cx="100" cy="110" r="70" fill="white" />
+			<path fill="currentColor" d="M99.225 36.267c-14.116 0-26.622 1.77-30.953 3.07-10.002 2.996-18.153 6.916-34.99 21.49-40.984 35.49-28.497 81.475-16.497 100.47 12 18.992 33.49 37.485 56.48 37.98.898.02 1.79.027 2.673.027 32.216 0 55.137-12.72 66.816-20.02 11.99-7.492 31.486-43.478 36.484-50.98 4.994-7.5-1-32.492-2.5-40.983-1.504-8.5-12-17.497-28.486-36.988-9.35-11.043-30.566-14.065-49.027-14.065M84.585 170.04c-12.648 0-24.642-3.23-31.815-9.244-15.49-12.993-17.49-41.986-16.493-50.483 1.004-8.5 11.505-26.478 25.992-35.487 11.598-7.21 22.013-8.716 31.497-8.716 5.638 0 10.95.535 15.984.718 13.504.502 31.502 11.498 36.49 32.99 5.875 25.21-6.04 41.87-21.483 56.48-9.933 9.39-25.5 13.74-40.173 13.74"/><path fill="currentColor" d="M86.764 93.817c-7.423 1.854-17.076 4.37-20.502 19.496-3.488 15.5 6.01 28.485 23.502 26.985 12.48-1.066 23.995-15.987 22.493-27.484-1.498-11.497-15.493-21.495-25.493-18.997"/>
+			</symbol>
+		</svg>
+
+		{% if entry is not defined %}
+			{% set entry = { "slug" : "" } %}
+		{% endif %}
+
+		<nav{% if craft.request.firstSegment == "conditions" %} class="show-sub-nav show-sub-nav-narrow"{% endif %}>
+			<div class="menu-handle"></div>	
+			<ul>			
+				<li{% if entry.slug == "about-us" %} class="active"{% endif %}><a href="{{ siteUrl }}about-us">About Thea</a></li>
+				<li id="conditions-nav" class="nav-with-sub-nav">
+					<a href="#" id="nav-condition-link">Conditions <object class="nav-icon" type="image/svg+xml" data="{{ siteUrl }}img/icon-down-arrow.svg">Thea Pharmaceuticals</object></a>
+						
+						<div class="sub-nav-holder">
+
+						<h2>Conditions</h2>
+
+						<ul class="conditions-sub-nav">
+
+						{% nav category in craft.categories.group("conditions") %}
+							<li class="{{ category.slug }} {{  category.cssReference }}{% if craft.request.getSegment(2) == category.slug %} active{% endif %}">
+								<a href="{{ url('conditions/' ~ category.slug) }}">
+									<svg><use xlink:href="#conditions-symbol"></use></svg>
+									<span>{{ category.title }}</span>
+								</a>
+							</li>
+						{% endnav %}
+
+							<li class="dry-eye">
+								<a href="{{ siteUrl }}faqs">
+									<svg><use xlink:href="#conditions-symbol"></use></svg>
+									<span>Conditions FAQ</span>
+								</a>
+							</li>
+
+						</ul>
+
+						</div>
+
+				</li>
+				<li{% if craft.request.firstSegment == "products" %} class="active"{% endif %}><a href="{{ siteUrl }}products">Products</a></li>
+				{#<li{% if craft.request.firstSegment == "faqs" %} class="active"{% endif %}><a href="{{ siteUrl }}faqs">FAQs</a></li>#}
+
+				<li id="stockists-nav" class="nav-with-sub-nav">
+					<a href="#" id="nav-stockists-link">Stockists <object class="nav-icon" type="image/svg+xml" data="{{ siteUrl }}img/icon-down-arrow.svg">*</object></a>
+						
+						<div class="sub-nav-holder">
+
+						<h2>Find Stockists</h2>
+
+						<ul class="conditions-sub-nav">
+
+						
+							<li class="dry-eye">
+								<a href="{{ siteUrl }}locator/stockist">
+									<svg><use xlink:href="#conditions-symbol"></use></svg>
+									<span>Stockists</span>
+								</a>
+							</li>
+
+							<li class="glaucoma">
+								<a href="{{ siteUrl }}locator/specialist">
+									<svg><use xlink:href="#conditions-symbol"></use></svg>
+									<span>Dry Eye Specialists</span>
+								</a>
+							</li>
+						
+
+						</ul>
+
+						</div>
+
+				</li>
+
+				<li{% if craft.request.firstSegment == "preservative-free" %} class="active"{% endif %}><a href="{{ siteUrl }}preservative-free">Preservative Free</a></li>
+				<li{% if entry.slug == "adverse-reaction" %} class="active"{% endif %}><a href="{{ siteUrl }}adverse-reaction">Report an Adverse Reaction</a></li>
+				<li{% if craft.request.firstSegment == "contact-us" %} class="active"{% endif %}><a href="{{ siteUrl }}contact-us">Contact Us</a></li>
+			</ul>
+		</nav>
+
+
+	</header>
+	
+	<div id="layout"{% if entry.slug is defined %} class="{{ entry.slug }}-page"{% endif %}>
+
+	<main id="main">
+		{% block main %}{% endblock %}
+	</main>
+	
+	
+	</div>
+
+	<footer>
+
+		<h1 class="logo"><a href="{{ siteUrl }}"><object type="image/svg+xml" data="{{ siteUrl }}img/thea-logo.svg">Thea Pharmaceuticals</object></a></h1>
+
+
+		<div class="pure-g">
+
+			<div class="pure-u-1 pure-u-md-8-24">
+
+			<h3>Write to us</h3>
+
+				<div class="footer-address">
+
+					<img class="union-jack" src="{{ siteUrl }}img/union-jack-icon.png" alt="Union Jack Flag" />
+
+					<p>Thea Pharmaceuticals Limited,<br>
+					MED IC3,<br>
+					Keele University Science & Business Park,<br>
+					Keele,<br>
+					Newcastle under Lyme,<br>
+					ST5 5NP
+					</p>
+
+				</div>
+
+			</div>
+
+			<div class="footer-tel pure-u-1 pure-u-md-8-24">
+
+			<h3>Call Us</h3>
+
+			<p>Please call our customer services helpline:</p>
+
+			<p class="tel">{{ company.companyTelephone }}<p>
+
+			<p class="outside-uk">If outside the UK visit <a href="http://www.laboratoires-thea.com/en">laboratoires-thea.com</a></p>
+
+			</div>
+
+			<div class="social social-footer pure-u-1 pure-u-md-8-24">
+				<h3>Interact with us</h3>
+				<ul>
+					<li><a href="{{ social.facebookUrl }}" class="social-icon social-icon-facebook" rel="noopener" target="_blank">Facebook</a></li>
+					<li><a href="{{ social.twitterUrl }}" class="social-icon social-icon-twitter" rel="noopener" target="_blank">Twitter</a></li>
+					<li><a href="{{ social.linkedinUrl }}" class="social-icon social-icon-linkedin" rel="noopener" target="_blank">LinkedIn</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<ul class="footer-links">
+			<!--li><a href="{{ url() }}/references">References</a></li-->
+			<li><a href="{{ url() }}privacy-policy">Privacy Policy</a></li>
+			<li><a href="{{ url() }}terms-of-use">Terms of Use</a></li>
+			<li><a href="{{ url() }}accessibility">Accessibility</a></li>
+			<li><a href="{{ url() }}sitemap">Sitemap</a></li>
+		</ul>
+
+
+	</footer>
+
+</div>
+
+{% endblock %}
+
+{% block footScripts %}
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
+<script type="text/javascript" src="{{ url() }}libs/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{{ url() }}libs/slick/slick.min.js"></script>
+<script src="{{ url() }}js/main.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9679255-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+{% endblock %}

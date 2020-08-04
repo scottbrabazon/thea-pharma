@@ -1,0 +1,44 @@
+<section class="related-products">
+
+<h2>Related Products</h2>
+	
+	<div class="product-panels-holder pure-g">
+	
+	
+		{# get the entries in the footer carousel #}
+		
+
+		{% for product in products %}
+
+		<div class="pure-u-1-1 pure-u-md-1-2 pure-u-lg-1-3">
+		
+		<div class="product-panel {{ product.slug }}">
+			
+			<div class="image-circle">
+
+				{% set asset = product.featureImage.first() %}
+
+				{% if asset %}
+		    		<img src="{{ asset.getUrl('relatedProduct') }}" alt="{{ asset.title }}" />
+				{% endif %}
+
+			</div>
+
+			<h3><a href="{{ product.url }}">{{ product.displayTitle | raw }}</a></h3>
+			
+			<p>{{ product.introduction }}</p>
+
+			<p class="more-link"><a href="{{ product.url }}">More Info</a></p>
+
+
+	  	</div>
+
+	  	</div>
+				
+		{% endfor %}
+			
+	
+	
+	</div> <!-- end of slider -->
+
+</section>

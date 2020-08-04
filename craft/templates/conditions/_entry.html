@@ -1,0 +1,46 @@
+{#
+ # Conditions Category Page
+ # ------------------------
+-#}
+
+{% set title = category.title %}
+{% set metaDescription = category.metaDescription %}
+
+{% extends "_layouts/site" %}
+
+{% block main %}
+
+
+<section class="entry-content pure-g">
+		
+
+	<div class="pure-u-1">
+
+		
+		
+		<h2 class="product-therapy-badge {{ category.cssReference }}"><svg><use xlink:href="#conditions-symbol"></use></svg><span>{{ category.title }}</span></h2>
+
+		<!--p class="pro-notice">The following information is intended for healthcare professionals</p-->
+
+		{% for block in category.entryContent %}
+
+			<h3>{{ block.heading }}</h3>
+
+			{{ block.sectionCopy }}
+
+		{% endfor %}
+
+
+
+	</div>
+
+</section>
+			
+{% include "_panels/related-products" with {'products': category.showProducts} %}
+
+
+{% include "_panels/enquiry-form" %}
+
+
+	
+{% endblock %}

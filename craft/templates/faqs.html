@@ -1,0 +1,53 @@
+{#
+ # FAQs
+ # -----------------
+ #
+ # This template gets loaded whenever the site's homepage is requested, because
+ # the "Homepage" single-entry section's Template setting is set to "index".
+ #
+ # An `entry` variable will be automatically passed to this template, which will
+ # be set to the Homepage entry.
+-#}
+
+{% set title = entry.displayTitle %}
+{% set metaDescription = entry.metaDescription %}
+
+{% extends "_layouts/site" %}
+
+{% block main %}
+
+
+<section class="entry-content faqs-section pure-g">
+    
+
+  <div class="pure-u-1">
+
+	<h2 class="page-title">{{ entry.displayTitle }}</h2>
+
+		{{ entry.mainCopy }}
+
+		{% nav faqCat in craft.categories.group("FAQs") %}
+			
+			<div class="faq-category">
+				<h2>{{ faqCat }}</h2>
+				<ul>
+				{% for faq in craft.entries.relatedTo(faqCat) %}
+					<li id="faq-{{ faq.slug }}">
+						<p class="faq-question">{{ faq.title }}</p>
+
+						<div class="faq-answer">{{ faq.faqAnswer }}</div>
+					</li>
+				{% endfor %}
+				</ul>
+			</div>
+
+		{% endnav %}
+
+	</div>
+
+</section>
+
+{% include "_panels/enquiry-form" %}
+	
+	
+{% endblock %}
